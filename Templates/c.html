@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="'container">
+    <table>
+        <tr>
+            <td>Name Of SHG</td>
+            <td>Amount</td>
+            <td>Activity</td>
+        </tr>
+    {%for s in shg%}
+        <tr>
+            <td>{{s.Name}}</td>
+            <td>{{s.Amount}}</td>
+            <td>{{s.Activity}}</td>
+        </tr>
+    {%endfor%}
+    </table>
+</div>
+</body>
+</html>

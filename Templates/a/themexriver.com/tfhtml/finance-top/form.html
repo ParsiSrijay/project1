@@ -1,0 +1,139 @@
+{% load static%}
+<html>
+<head>
+	<title>Login</title>
+	<link href="{%static 'css/bootstrap1.min.css'%}" rel="stylesheet" id="bootstrap-css">
+    <link href="{%static 'css/hello.css'%}" rel="stylesheet">
+<script src="{%static 'js/bootstrap1.min.js'%}"></script>
+<script src="{%static 'js/jquery1.min.js'%}"></script>
+</head>
+<body bgcolor="blue">
+<h1>{{content}}</h1>
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        
+                     
+                    </div>
+                    <div class="col-md-9 register-right">
+                       <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
+                            </li>
+                        </ul>-->
+                            <form action="" method="POST">
+                            {% csrf_token %}
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Add SHG</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name of SHG"  value="" name="name"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Activity Name" value="" name="act"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Loan Amount (in Lakhs)" value="" name="amt"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="No.of women beneficiaries" value="" name="wb"/>
+                                        </div>
+                                         <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Registration_id_imo" value="" name="reg"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="textarea" class="form-control" placeholder="Address" value="" name="location"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Time period" value="" name="tp"/>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Rate of Interest" value="" name="rate"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Years In Current Job" value="" name="ycj"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="Previous Debt" value="" name="pd"/>
+                                        </div>
+                                        <!--<div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Previous Debt" value="" name="pd"/>
+                                        </div>-->
+                                    </div>
+                                   <!-- <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="Previous Debt" value="" name="pd"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-mod-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Registration_id_imo" value="" name="reg"/>
+                                        </div>
+                                    </div>-->
+                                    <input type="submit" class="btnRegister"  value="Can loan be approved"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+                        </form>
+                    </div>
+                </div>
+</div>
+
+</body>
+</html>

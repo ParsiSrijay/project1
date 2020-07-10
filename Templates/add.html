@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action ="signup" method="POST">
+    {% csrf_token %}
+    Name Of SHG:<input type="text" name="name"><br>
+    Activity:<input type="text" name="act"><br>
+    Amount:<input type="text" name="amt"><br>
+    Number of Woman Beneficaries:<input type="text" name="wb"><br>
+    Location:<input type="text" name="location"><br>
+    Time Period:<input type="text" name="tp"><br>
+    Rate of Interest:<input type="text" name="rate"><br>
+    Registration_id_imo:<input type="text" name="reg">
+    <input type="submit">
+</form>
+</body>
+</html>

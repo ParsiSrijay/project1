@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+themexriver.com	TRUE	/	FALSE	1999999999	PHPSESSID	p35pmtlcmn4saqi2sitvbj7o26
+themexriver.com	TRUE	/	FALSE	1999999999	edd_wp_session	30b4bf3d1aa6537f7ae1a7450d402005%7C%7C1579651138%7C%7C1579649338
+
