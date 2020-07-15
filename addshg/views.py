@@ -45,7 +45,7 @@ def signup(request):
             else:
                 act=7
                 action="Fishing"
-            model = joblib.load('C:/Users/P SRIJAY/Desktop/imo1.pkl')
+            model = joblib.load('C:/Users/P SRIJAY/Desktop/sih/imo1.pkl')
             x=[int(amount),int(woman),int(ycj),int(tp),act,pd]
             x=np.array(x)
             x=x.reshape(1,-1)

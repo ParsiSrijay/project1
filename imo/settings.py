@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'addshg.apps.AddshgConfig',
     'app1.apps.App1Config',
     'tax.apps.TaxConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
