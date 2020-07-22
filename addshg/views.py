@@ -17,7 +17,7 @@ def signup(request):
             name=request.POST['name']
             act=request.POST['act']
             amount=request.POST['amt']
-            amt=int(amount)*100000
+            amt=amount*100000
             woman=request.POST['wb']
             location=request.POST['location']
             tp=request.POST['tp']
@@ -25,6 +25,8 @@ def signup(request):
             reg=request.POST['reg']
             pd=request.POST['pd']
             ycj=request.POST['ycj']
+            if name=="" or act=="" or amount==0 or woman=="" or location=="" or tp=="" or pd=="" or ycj=="":
+                return render(request,'a/themexriver.com/tfhtml/finance-top/form.html',{'content':"Enter all The required fields"})
             action=act
             if pd=='Yes' or pd=='yes' or pd=='y':
                 pd=1
