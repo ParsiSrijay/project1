@@ -15,6 +15,11 @@
             </span>
         </div>
     </nav>-->
+    {%if success%}
+    <div class="alert alert-success" role="alert">
+        {{success}}
+    </div>
+    {%endif%}
     <div class="col-2">
 
     </div>
@@ -50,6 +55,11 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    {%if failure%}
+    <div class="alert alert-danger" role="alert">
+            {{failure}}
+    </div>
+    {%endif%}
     <div class="col-2">
 
     </div>
