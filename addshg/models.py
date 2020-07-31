@@ -16,3 +16,11 @@ class installments(models.Model):
     Installments=models.IntegerField()
     Date=models.DateField(default=timezone.now)
     Registration_id_imo = models.CharField(max_length=10)
+
+class LoanRegister(models.Model):
+    Name=models.CharField(max_length=20,default="")
+    Date=models.DateTimeField(default=timezone.now)
+    OpeningBalance=models.IntegerField()
+    LoanRepayment=models.IntegerField()
+    Interest=models.IntegerField()
+    ClosingBalance=models.IntegerField()

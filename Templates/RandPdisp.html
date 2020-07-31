@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" height="100%" width="100%">
+    <tr>
+        <th colspan="2">Receipts</th>
+        <th colspan="2">Payments</th>
+    </tr>
+    {%for i in rp%}
+    <tr>
+        <td>{{i.rec_field}}</td>
+        <td>{{i.rec_amt}}</td>
+        <td>{{i.pay_field}}</td>
+        <td>{{i.pay_amt}}</td>
+    </tr>
+    {%endfor%}
+    <tr>
+        {%if ex1%}
+            <td></td>
+            <td></td>
+            <td>Excess in Receipts</td>
+            <td>{{ex1}}</td>
+        {%else%}
+            <td>Excess in Payments</td>
+            <td>{{ex2}}</td>
+            <td></td>
+            <td></td>
+        {%endif%}
+
+    </tr>
+    <tr>
+        <div class="col-6">
+            <td>Receipts Total</td>
+        <td>
+            {{rec_total.rec_sum}}
+        </td>
+        </div>
+        <div class="col-6">
+            <td>Payments Total</td>
+        <td>
+            {{rec_total.rec_sum}}
+        </td>
+        </div>
+
+    </tr>
+</table>
+</body>
+</html>

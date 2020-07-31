@@ -11,12 +11,12 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
 
-from .models import shg,installments
+from .models import shg,installments,LoanRegister
 def signup(request):
         if request.method == 'POST':
             name=request.POST['name']
             act=request.POST['act']
-            amount=request.POST['amt']
+            amount=int(request.POST['amt'])
             amt=amount*100000
             woman=request.POST['wb']
             location=request.POST['location']
@@ -47,6 +47,7 @@ def signup(request):
             else:
                 act=7
                 action="Fishing"
+            print(amt,amount)
             model = joblib.load('C:/Users/P SRIJAY/Desktop/sih/imo1.pkl')
             x=[int(amount),int(woman),int(ycj),int(tp),act,pd]
             x=np.array(x)
@@ -55,6 +56,8 @@ def signup(request):
             if y_test[0]==1:
                 s=shg(Name=name,Activity=action,Amount=amt,Woman_beneficiaries=woman,Location=location,TimePeriod=tp,Rate=rate,Registration_id_imo=reg)
                 s.save()
+                lr=LoanRegister(Name=name,OpeningBalance=amt,LoanRepayment=0,Interest=0,ClosingBalance=amt)
+                lr.save()
                 return render(request,'a/themexriver.com/tfhtml/finance-top/form.html',{'content':"Successfully Loan Approved"})
             else:
                 return render(request,'a/themexriver.com/tfhtml/finance-top/form.html',{'content': "Loan Rejected!!!"})
@@ -74,10 +77,29 @@ def payinstallments(request):
         inst=request.POST['installments']
         reg=request.POST['reg']
         s=shg.objects.get(Name=name,Registration_id_imo=reg)
-        s.Amount-=int(inst)
+        openbal=s.Amount
+        loaninst=inst
+        rate=s.Rate/12
+        time=s.TimePeriod
+        interest= (openbal*rate*time)/100
+        closebal=openbal-int(loaninst)+interest
+        s.Amount=closebal
         s.save()
-        t=installments(Name=name,Installments=int(inst),Registration_id_imo=reg)
-        t.save()
+        lr=LoanRegister(Name=name,OpeningBalance=openbal,LoanRepayment=inst,Interest=interest,ClosingBalance=closebal)
+        lr.save()
         return redirect('http://127.0.0.1:8000/add/display')
     else:
         return render(request,'index.html')
+
+def dispLR(request):
+    name_list = LoanRegister.objects.raw('SELECT DISTINCT Name,id from addshg_loanregister')
+    l = []
+    for i in name_list:
+        if i.Name not in l:
+            l.append(i.Name)
+    if request.method=="POST":
+        name=request.POST['name']
+        lr=LoanRegister.objects.all().filter(Name=name)
+        return render(request,"form.html",{"shg":lr,"name_list":l})
+    else:
+        return render(request,"form.html",{"name_list":l})

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" height="100%" width="100%">
+    <tr>
+        <th colspan="2">Liabilities</th>
+        <th colspan="2">Assets</th>
+    </tr>
+    {%for i in sheet%}
+    <tr>
+        <td>{{i.lia_field}}</td>
+        <td>{{i.lia_amt}}</td>
+        <td>{{i.as_field}}</td>
+        <td>{{i.as_amt}}</td>
+    </tr>
+    {%endfor%}
+    <tr>
+        {%ifequal c 0%}
+            <td>Excess in Expenditure</td>
+            <td>{{ie}}</td>
+            <td></td>
+            <td></td>
+        {%else%}
+            <td></td>
+            <td></td>
+            <td>Excess in Income</td>
+            <td>{{ie}}</td>
+        {%endifequal%}
+    </tr>
+    <tr>
+        {%ifequal d 0%}
+            <td>Excess in payments</td>
+            <td>{{rp}}</td>
+            <td></td>
+            <td></td>
+        {%else%}
+            <td></td>
+            <td></td>
+            <td>Excess in Receipts</td>
+            <td>{{rp}}</td>
+        {%endifequal%}
+
+    </tr>
+    <tr>
+        <div class="col-6">
+            <td>Total</td>
+        <td>
+            {{lia_total.pay_sum}}
+        </td>
+        </div>
+        <div class="col-6">
+            <td>Payments Total</td>
+        <td>
+            {{as_total.rec_sum}}
+        </td>
+        </div>
+
+    </tr>
+</table>
+</body>
+</html>
